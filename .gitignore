@@ -1,0 +1,12 @@
+
+.DS_Store
+
+Makefile
+
+main.o
+
+*.png
+
+pngsplit
+
+pngsplit.pro.user

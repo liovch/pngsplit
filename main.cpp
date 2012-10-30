@@ -1,5 +1,7 @@
 #include <QtCore/QCoreApplication>
 #include <QImage>
+#include <QFileInfo>
+#include <QString>
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -16,8 +18,10 @@ int main(int argc, char *argv[])
     QImage alpha = image.alphaChannel();
     QImage rgb = image.convertToFormat(QImage::Format_RGB888);
     qDebug() << "Alpha image format:" << alpha.format();
-    rgb.save("rgb.png");
-    alpha.save("alpha.png");
+
+    QFileInfo fileInfo = QFileInfo(QString(argv[1]));
+    rgb.save(fileInfo.baseName() + QString("_rgb.png"));
+    alpha.save(fileInfo.baseName() + QString("_alpha.png"));
 
     return 0;
 }
